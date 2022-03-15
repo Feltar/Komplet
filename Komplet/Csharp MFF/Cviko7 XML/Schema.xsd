@@ -1,0 +1,23 @@
+﻿<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:simpleType name="xType">
+		<xs:restriction base="xs:float"/>
+	</xs:simpleType>
+	<xs:complexType name="Obrazek">
+		<xs:attribute name="x" type="xType" use="required"/>
+		<xs:attribute name="y" type="xType" use="required"/>
+		<xs:attribute name="x1" type="xType" use="required"/>
+		<xs:attribute name="y1" type="xType" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="Obrazky">
+		<xs:sequence>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="Kruh" type="Obrazek"
+					minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="Ctverec" type="Obrazek"
+					minOccurs="0" maxOccurs="unbounded"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Obrazky" type="Obrazky"/>
+</xs:schema>
+
